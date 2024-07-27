@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login & Signup Form</title>
+<link rel="stylesheet" href="log2.css">
+</head>
+<body>
+<div class="container">
+  <div class="tab">
+    <div id="loginTab" class="active">Login</div>
+    <div id="signupTab">Signup</div>
+  </div>
+  <div class="form login active" id="loginForm">
+    <form onsubmit="return login()">
+      <input type="text" id="emailLogin" placeholder="Email address" required>
+      <input type="password" id="passwordLogin" placeholder="Password" required>
+      <a href="#">Forgot password?</a>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+  <div class="form signup" id="signupForm">
+    <form onsubmit="return signup()">
+      <input type="text" id="fullName" placeholder="Full name" required>
+      <input type="text" id="emailSignup" placeholder="Email address" required>
+      <input type="password" id="passwordSignup" placeholder="Password" required>
+      <div class="checkbox">
+        <input type="checkbox" id="signupCheck" required>
+        <label for="signupCheck">I accept all terms & conditions</label>
+      </div>
+      <input type="submit" value="Signup">
+    </form>
+  </div>
+</div>
+
+<script>
+const loginTab = document.getElementById('loginTab');
+const signupTab = document.getElementById('signupTab');
+const loginForm = document.getElementById('loginForm');
+const signupForm = document.getElementById('signupForm');
+
+loginTab.addEventListener('click', () => {
+  loginTab.classList.add('active');
+  signupTab.classList.remove('active');
+  loginForm.classList.add('active');
+  signupForm.classList.remove('active');
+});
+
+signupTab.addEventListener('click', () => {
+  signupTab.classList.add('active');
+  loginTab.classList.remove('active');
+  signupForm.classList.add('active');
+  loginForm.classList.remove('active');
+});
+
+function signup() {
+  // Perform signup logic (e.g., validation, sending data to server)
+  // For demo purposes, we simulate a successful signup and redirect to login
+  loginTab.classList.add('active');
+  signupTab.classList.remove('active');
+  loginForm.classList.add('active');
+  signupForm.classList.remove('active');
+  return false; // Prevent form submission
+}
+
+function login() {
+  // Perform login logic (e.g., validation, checking credentials)
+  // For demo purposes, we simulate a successful login and redirect to MainT.html
+  window.location.href = "MainT.html";
+  return false; // Prevent form submission
+}
+</script>
+</body>
+</html>
